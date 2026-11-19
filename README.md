@@ -22,6 +22,7 @@ A new-tab extension for Dia and other Chromium browsers, built on [ascii-animals
 2. Go to `chrome://extensions` and turn on **Developer mode**.
 3. Click **Load unpacked** and choose the folder (the one with `manifest.json` in it).
 4. Open a new tab.
+5. Click the name twice to input your own name for the greeting.
 
 To update, unzip the new version over the same folder and click reload ↻ on the extension in `chrome://extensions`.
 
