@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>New Tab</title>
+    <script src="./liquid.js"></script>
+    <style>html, body { background: #000; margin: 0; }</style>
+    <script type="module" crossorigin src="./assets/index-DSJuuKzZ.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-D7zmGfKT.css">
+  </head>
+  <body>
+    <canvas aria-hidden="true"></canvas>
+
+    <!-- Displacement map for the liquid-glass refraction. -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <filter id="liquid-glass" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.007 0.011" numOctaves="2" seed="11" result="noise" />
+        <feGaussianBlur in="noise" stdDeviation="2" result="map" />
+        <feDisplacementMap in="SourceGraphic" in2="map" scale="40" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </svg>
+
+    <div class="top-bar">
+      <div class="choices glass" role="radiogroup" aria-label="Animal"></div>
+    </div>
+
+    <main class="stage">
+      <!-- Dia's mark, cut out of a screenshot (a concept redesign, not affiliated with Dia). -->
+      <div class="masthead">
+        <div class="logo" role="img" aria-label="Dia"></div>
+        <h1 class="greeting">Hello, Ege</h1>
+      </div>
+      <form class="composer glass" autocomplete="off">
+        <div class="composer-field">
+          <svg class="composer-search" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="6.5" />
+            <path d="m15.5 15.5 5 5" />
+          </svg>
+          <textarea name="prompt" rows="1" placeholder="Ask anything..." aria-label="Ask anything"></textarea>
+        </div>
+        <div class="composer-bar">
+          <div class="tools">
+            <button type="submit" class="send" aria-label="Send" disabled>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 19V5M5 12l7-7 7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </form>
+    </main>
+
+  </body>
+</html>
