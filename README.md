@@ -13,6 +13,8 @@ A new-tab extension for Dia and other Chromium browsers, built on [ascii-animals
   - It shows **suggestions as you type**: pages from your history (addresses that start with what you've typed come first, then the ones you visit most) and Google's search suggestions.
   - Use **↑ / ↓** to pick a suggestion and **Enter** to open it, or click one. **Esc** closes the list.
   - **Enter** on a web address (for example `github.com`) opens the site. Anything else is searched with your browser's default search engine.
+ 
+![demo img](https://i.ibb.co/Q307LWd6/image.png)
 
 ## Install
 
