@@ -39,8 +39,18 @@ To update, unzip the new version over the same folder and click reload ↻ on th
 
 ### Firefox and Zen
 
-Download extension here: [addons.mozilla.org/firefox/downloads/file/5283079/a668bd87586d4cd9b37d-1.25.1.xpi](https://addons.mozilla.org/firefox/downloads/file/5283079/a668bd87586d4cd9b37d-1.25.1.xpi)
-If you are using Zen: Go to `about:config` and search for `zen.urlbar.replace-newtab`. Set it to false.
+1. Download extension here: [addons.mozilla.org/firefox/downloads/file/5283079/a668bd87586d4cd9b37d-1.25.1.xpi](https://addons.mozilla.org/firefox/downloads/file/5283079/a668bd87586d4cd9b37d-1.25.1.xpi)
+2. If you are using Zen: Type `about:config` in your search bar and in the opened page, search for `zen.urlbar.replace-newtab`. Set it to false.
+3. Set the correct homepage by following the steps below:
+  - Close all tabs and open a new tab.
+  - Go to Firefox settings -> Home and startup -> Homepage.
+  - Click new windows, select custom url -> choose a specific site -> current opened pages.
+  - Ensure the extension is the only item in the list.
+  - Lastly, go back and ensure that the extension is selected in the new tabs option too.
+   
+You're all set!
+  
+
 
 ## How it works in each browser
 
