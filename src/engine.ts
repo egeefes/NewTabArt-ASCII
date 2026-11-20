@@ -8,12 +8,10 @@ const STEP = 1 / 60;
 const resolve = (animal: AnimalKey | Animal<any>) => (typeof animal === "string" ? ANIMALS[animal] : animal);
 const MAX_STEPS = 8;
 /**
- * Frame-rate caps. Displays run at 60–120 Hz, but the animals move on a coarse character grid, so 30
- * redraws a second looks the same and costs a quarter of a 120 Hz Mac's work. Slower still when the
- * window isn't focused (the new tab is on screen while you work in another app).
+ * Frame-rate cap. Displays run at 60–120 Hz, but the animals move on a coarse character grid, so 30
+ * redraws a second looks the same and costs a quarter of a 120 Hz Mac's work.
  */
-const FPS_FOCUSED = 30;
-const FPS_BACKGROUND = 15;
+const FPS = 30;
 
 /**
  * Wires a Flock + AsciiRenderer to a canvas: fixed-timestep loop, resize,
@@ -122,7 +120,7 @@ export class AnimalEngine {
   }
 
   private frame = (now: number) => {
-    const interval = 1000 / (document.hasFocus() ? FPS_FOCUSED : FPS_BACKGROUND);
+    const interval = 1000 / FPS;
     // Skip display refreshes until a frame is due (2ms early is fine: refreshes aren't perfectly even).
     if (now - this.last < interval - 2) {
       this.raf = requestAnimationFrame(this.frame);
