@@ -18,30 +18,23 @@ A new-tab extension for Dia and other Chromium browsers, built on [ascii-animals
 
 ## Install
 
-1. Unzip `ascii-animals-newtab.zip` into a folder you'll keep. Dia loads the extension from that folder, so don't delete it.
+0. Go to releases for this repository and download `chrome-extension-universal.zip`
+1. Unzip the file into a folder you'll keep. The browser loads the extension from that folder, so don't delete it.
 2. Go to `chrome://extensions` and turn on **Developer mode**.
-3. Click **Load unpacked** and choose the folder (the one with `manifest.json` in it).
+3. Click **Load unpacked** and choose the folder.
 4. Open a new tab.
 5. Click the name twice to input your own name for the greeting.
 
-To update, unzip the new version over the same folder and click reload ↻ on the extension in `chrome://extensions`.
-
-## Shortcut
-
-**Option+T** (Alt+T on Windows and Linux) opens the animals page directly in a new tab. To change the key, go to `chrome://extensions/shortcuts`.
-
 ## How it works in Dia
 
-Dia doesn't let extensions replace its new tab, which opens at `chrome://start-page/…`. A small background script watches for that page and sends the tab to the animals page instead. It stays awake so this happens as fast as possible.
-
+For Dia, a small background script watches for that page and sends the tab to the animals page instead. It stays awake so this happens as fast as possible.
 In Chrome and other browsers that do allow extensions to replace the new tab, the page is used directly.
 
 ## Known limitations
 
 - **A brief flash of Dia's own new tab** when you press Cmd+T, because the extension can only redirect the tab after Dia has started loading it. The Option+T shortcut avoids this.
 - **The address bar shows `chrome-extension://…/index.html`.** Browsers always show an extension page's real address and don't let extensions hide it.
-- **Doesn't work in incognito windows.** Extensions can't replace the new tab there.
-- **History suggestions come from the last year of your history**, loaded once each time a new tab opens.
+- **Doesn't work in incognito windows.**
 
 ## Permissions
 
