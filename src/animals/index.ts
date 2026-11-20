@@ -1,4 +1,5 @@
 import type { Animal } from "../flock";
+import { bees } from "./bees";
 import { butterflies } from "./butterflies";
 import { crabs } from "./crabs";
 import { cranes } from "./cranes";
@@ -11,6 +12,7 @@ import { koi } from "./koi";
 export const ANIMALS = {
   butterflies,
   koi,
+  bees,
   jellyfish,
   dragonflies,
   frogs,
