@@ -39,7 +39,7 @@ To update, unzip the new version over the same folder and click reload ↻ on th
 
 ### Firefox and Zen
 
-Download extension here: [https://addons.mozilla.org/developers/](https://addons.mozilla.org/en-US/firefox/addon/ascii-animals-new-tab-page/))
+Download extension here: [addons.mozilla.org/en-US/firefox/addon/ascii-animals-new-tab-page](https://addons.mozilla.org/en-US/firefox/addon/ascii-animals-new-tab-page/))
 
 ## How it works in each browser
 
