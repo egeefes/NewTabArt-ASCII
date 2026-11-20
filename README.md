@@ -9,12 +9,12 @@ A new-tab extension for Dia and other Chromium browsers, built on [ascii-animals
 - **Seven animals to choose from:** butterflies, koi, jellyfish, dragonflies, frogs, cranes and crabs. Each one moves in its own way, and the ones farther away look smaller, move slower and fade into the background.
 - **Click** near the animals to startle them, or tap the koi pond to drop food.
 - **The animal picker** (top centre) and **Tweaks** (top right) stay hidden until your mouse moves near them. Tweaks lets you adjust speed, number of animals, colours and more, with settings saved for each animal.
-- **A search box** with a greeting that changes with the time of day:
+- **A greeting** that changes with the time of day. **Double-click it to change your name** (press Enter to save, Esc to cancel). Leave the name empty for no name.
+- **A search box**:
   - It shows **suggestions as you type**: pages from your history (addresses that start with what you've typed come first, then the ones you visit most) and Google's search suggestions.
+  - **The top suggestion is filled in as you type.** Typing `gi` fills in `github.com`, with the added part selected. Keep typing to replace it, press **Enter** to open it, **→ / Tab** to accept the text, or **Backspace / Esc** to remove it.
   - Use **↑ / ↓** to pick a suggestion and **Enter** to open it, or click one. **Esc** closes the list.
   - **Enter** on a web address (for example `github.com`) opens the site. Anything else is searched with your browser's default search engine.
- 
-![demo img](https://i.ibb.co/Q307LWd6/image.png)
 
 ## Install
 
@@ -24,8 +24,6 @@ A new-tab extension for Dia and other Chromium browsers, built on [ascii-animals
 4. Open a new tab.
 
 To update, unzip the new version over the same folder and click reload ↻ on the extension in `chrome://extensions`.
-
-(By default the Dia browser logo is hidden for other browsers. If you are using Dia please rename the logo in the folder to have it displayed.)
 
 ## Shortcut
 

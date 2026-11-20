@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ASCII Animals New Tab",
-  "version": "1.14.0",
+  "version": "1.17.0",
   "description": "ASCII animals drift across your new tab, behind a search box with suggestions from your history and Google.",
   "chrome_url_overrides": {
     "newtab": "index.html"

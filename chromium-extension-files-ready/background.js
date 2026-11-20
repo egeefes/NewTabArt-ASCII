@@ -4,14 +4,11 @@ const PAGE = chrome.runtime.getURL("index.html");
 const NEW_TAB = /^[a-z-]+:\/\/(start-page|newtab|new-tab-page|new-tab)\b/i;
 const go = (id) => chrome.tabs.update(id, { url: PAGE }).catch(() => {});
 
-chrome.tabs.onCreated.addListener(async (tab) => {
+// Only Dia's actual new tab page is redirected. (An earlier "blank tab" shortcut also caught links
+// opened in a new tab, since those start out blank too, so it's gone.)
+chrome.tabs.onCreated.addListener((tab) => {
   const url = tab.pendingUrl || tab.url;
-  if (url && NEW_TAB.test(url)) return go(tab.id);
-  // Fast path: Cmd+T makes a tab with no address yet, before Dia loads its start page.
-  if (!url) {
-    const win = await chrome.windows.get(tab.windowId).catch(() => null);
-    if (win && win.type === "normal") go(tab.id);
-  }
+  if (url && NEW_TAB.test(url)) go(tab.id);
 });
 chrome.tabs.onUpdated.addListener((id, change) => {
   if (change.url && NEW_TAB.test(change.url)) go(id);
