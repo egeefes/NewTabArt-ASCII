@@ -119,8 +119,16 @@ export function mountChoices(host: HTMLElement, choices: Choice[], current: stri
     b.type = "button";
     b.setAttribute("role", "radio");
     b.dataset.value = c.value;
-    const dot = c.swatch ? `<span class="dot" style="--swatch: ${c.swatch}" aria-hidden="true"></span>` : "";
-    b.innerHTML = `${dot}<span>${c.label}</span>`;
+    if (c.swatch) {
+      const dot = document.createElement("span");
+      dot.className = "dot";
+      dot.style.setProperty("--swatch", c.swatch);
+      dot.setAttribute("aria-hidden", "true");
+      b.append(dot);
+    }
+    const label = document.createElement("span");
+    label.textContent = c.label;
+    b.append(label);
     b.addEventListener("click", () => select(c.value, true));
     host.append(b);
     return b;

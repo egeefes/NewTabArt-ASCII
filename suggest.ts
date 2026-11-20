@@ -2,7 +2,9 @@
  * Address-bar-style suggestions for the new tab's search box: pages from your history
  * (most visited first) and Google's search suggestions. Arrow keys / mouse to pick, Enter to open.
  */
-const c = (globalThis as any).chrome;
+// Firefox has `browser` (promise-based); Chromium browsers (Dia, Chrome) have `chrome`.
+const c = (globalThis as any).browser ?? (globalThis as any).chrome;
+const isFirefox = typeof navigator !== "undefined" && /Firefox\//.test(navigator.userAgent);
 
 type Item = { kind: "url"; url: string; title: string } | { kind: "search"; text: string };
 
@@ -96,10 +98,21 @@ function inlineFromHistory(q: string): Item | null {
   return best ? { kind: "url", url: best.url, title: best.key } : null;
 }
 
-const favicon = (url: string) =>
-  c?.runtime?.getURL ? `${c.runtime.getURL("/_favicon/")}?pageUrl=${encodeURIComponent(url)}&size=32` : "";
-const SEARCH_ICON = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>`;
-const GLOBE_ICON = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>`;
+// Chromium serves site icons to extensions locally; Firefox doesn't, so it asks Google's icon service.
+const favicon = (url: string) => {
+  if (isFirefox) {
+    try {
+      return `https://www.google.com/s2/favicons?sz=32&domain=${new URL(url).hostname}`;
+    } catch {
+      return "";
+    }
+  }
+  return c?.runtime?.getURL ? `${c.runtime.getURL("/_favicon/")}?pageUrl=${encodeURIComponent(url)}&size=32` : "";
+};
+/** Parse a fixed SVG string into an element (avoids innerHTML, which Firefox's add-on review flags). */
+const svgIcon = (markup: string) => new DOMParser().parseFromString(markup, "image/svg+xml").documentElement;
+const SEARCH_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>`;
+const GLOBE_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>`;
 
 export function mountSuggestions() {
   const form = document.querySelector<HTMLFormElement>(".composer")!;
@@ -122,7 +135,7 @@ export function mountSuggestions() {
   const fillText = (item: Item) => (item.kind === "url" ? display(item.url) : item.text);
 
   function render() {
-    list.innerHTML = "";
+    list.replaceChildren();
     list.hidden = items.length === 0;
     items.forEach((item, i) => {
       const li = document.createElement("li");
@@ -133,9 +146,9 @@ export function mountSuggestions() {
       if (item.kind === "url") {
         const img = new Image();
         img.src = favicon(item.url);
-        img.onerror = () => (icon.innerHTML = GLOBE_ICON);
+        img.onerror = () => icon.replaceChildren(svgIcon(GLOBE_ICON));
         icon.append(img);
-      } else icon.innerHTML = SEARCH_ICON;
+      } else icon.append(svgIcon(SEARCH_ICON));
       const main = document.createElement("span");
       main.className = "s-main";
       main.textContent = item.kind === "url" ? item.title : item.text;
@@ -205,7 +218,6 @@ export function mountSuggestions() {
     });
   }
 
-  let timer = 0;
   prompt.addEventListener("beforeinput", (e) => {
     deleting = e.inputType.startsWith("delete");
   });
@@ -218,9 +230,7 @@ export function mountSuggestions() {
       applyFill(fillText(first));
     } else if (sel === 0) sel = -1;
     render();
-    clearTimeout(timer);
-    if (!typed.trim()) return update();
-    timer = window.setTimeout(update, 100);
+    update(); // no delay: look up suggestions on every keystroke
   });
 
   // Capture phase, so Enter on a picked or filled-in suggestion opens it instead of sending the box.

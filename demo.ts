@@ -85,6 +85,10 @@ mountGreeting("Ege");
 
 mountSuggestions();
 
+// Put the cursor in the search box so you can type straight away (Chrome/Dia may keep it in the
+// address bar; Firefox/Zen hand it to the page after focus.js reloads it once).
+document.querySelector<HTMLTextAreaElement>(".composer textarea")?.focus();
+
 // Pin the box's top edge where it first lands, so suggestions grow it downward instead of
 // re-centering it (which made it jump up and down).
 {

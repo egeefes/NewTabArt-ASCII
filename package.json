@@ -1,14 +1,16 @@
 {
   "name": "ascii-animals",
-  "version": "0.1.0",
+  "version": "1.24.0",
   "private": true,
   "license": "MIT",
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "typecheck": "tsc --noEmit"
+    "build": "npm run build:chrome && npm run build:firefox",
+    "typecheck": "tsc --noEmit",
+    "build:chrome": "node scripts/build.mjs chrome",
+    "build:firefox": "node scripts/build.mjs firefox"
   },
   "devDependencies": {
     "@fontsource/geist-mono": "^5.3.0",
