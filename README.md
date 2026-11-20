@@ -25,7 +25,7 @@ Download the right zip from this repository's [Releases](../../releases):
 | Browser | Download |
 |---|---|
 | Dia, Chrome, Edge, Arc, Brave and other Chromium browsers | `chrome-extension-universal.zip` |
-| Firefox and Zen | [https://addons.mozilla.org/developers/](https://addons.mozilla.org/en-US/firefox/addon/ascii-animals-new-tab-page/)) |
+| Firefox and Zen | [addons.mozilla.org/en-US/firefox/addon/ascii-animals-new-tab-page](https://addons.mozilla.org/en-US/firefox/addon/ascii-animals-new-tab-page/) or download directly from [addons.mozilla.org/firefox/downloads/file/5282856/a668bd87586d4cd9b37d-1.21.1.xpi](https://addons.mozilla.org/firefox/downloads/file/5282856/a668bd87586d4cd9b37d-1.21.1.xpi) |
 
 ### Dia, Chrome and other Chromium browsers
 
