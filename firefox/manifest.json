@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ASCII Animals New Tab",
-  "version": "1.27.1",
+  "version": "1.29.1",
   "description": "ASCII animals drift across your new tab, behind a search box with suggestions from your history and Google.",
   "icons": {
     "16": "icons/icon-16.png",

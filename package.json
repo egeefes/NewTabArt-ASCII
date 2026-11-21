@@ -1,21 +1,23 @@
 {
   "name": "ascii-animals",
-  "version": "1.27.1",
+  "version": "1.29.1",
   "private": true,
   "license": "MIT",
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:chrome && npm run build:firefox",
+    "build": "npm run build:chrome && npm run build:firefox && npm run build:web",
     "typecheck": "tsc --noEmit",
     "build:chrome": "node scripts/build.mjs chrome",
-    "build:firefox": "node scripts/build.mjs firefox"
+    "build:firefox": "node scripts/build.mjs firefox",
+    "build:web": "node scripts/build-web.mjs"
   },
   "devDependencies": {
     "@fontsource/geist-mono": "^5.3.0",
     "@fontsource/geist-sans": "^5.3.0",
     "typescript": "^5.6.0",
-    "vite": "^6.0.0"
+    "vite": "^6.0.0",
+    "vite-plugin-singlefile": "^2.3.4"
   }
 }

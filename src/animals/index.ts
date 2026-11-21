@@ -1,7 +1,9 @@
 import type { Animal } from "../flock";
 import { bees } from "./bees";
 import { butterflies } from "./butterflies";
+import { cats } from "./cats";
 import { crabs } from "./crabs";
+import { dachshunds } from "./dachshunds";
 import { cranes } from "./cranes";
 import { dragonflies } from "./dragonflies";
 import { frogs } from "./frogs";
@@ -18,6 +20,8 @@ export const ANIMALS = {
   frogs,
   cranes,
   crabs,
+  dachshunds,
+  cats,
 } satisfies Record<string, Animal<any>>;
 
 export type AnimalKey = keyof typeof ANIMALS;

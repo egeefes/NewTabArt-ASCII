@@ -80,10 +80,13 @@ function changed<T extends object>(values: T, defaults: T): Partial<T> {
 }
 
 function applyGlass(g: Glass) {
-  const composer = document.querySelector<HTMLElement>(".composer")!;
-  composer.style.setProperty("--blur", `${g.blur}px`);
-  composer.style.borderRadius = `${g.radius}px`;
-  composer.style.width = `min(${g.width}px, calc(100vw - 32px))`;
+  // The chat box only exists on the new-tab page, not the standalone web page.
+  const composer = document.querySelector<HTMLElement>(".composer");
+  if (composer) {
+    composer.style.setProperty("--blur", `${g.blur}px`);
+    composer.style.borderRadius = `${g.radius}px`;
+    composer.style.width = `min(${g.width}px, calc(100vw - 32px))`;
+  }
   document.documentElement.style.setProperty("--tint", String(g.tint));
   document.documentElement.style.setProperty("--edge", String(g.edge));
   document.querySelector("#liquid-glass feDisplacementMap")?.setAttribute("scale", String(g.refraction));
@@ -155,9 +158,10 @@ export function mountTweakPanel<T extends Knobs>(
     },
   });
 
+  const hasComposer = Boolean(document.querySelector(".composer"));
   const sections: [string, Control[]][] = [
     ...groups(kit),
-    ["Chat glass", [
+    hasComposer ? ["Chat glass", [
       pane("blur", "Blur (px)", 0, 30, 0.5, "How frosted the chat box is: how much it blurs what's behind it."),
       pane("refraction", "Refraction", 0, 150, 1, "How strongly the glass bends what's behind it, like liquid glass (Chromium browsers only). Off by default: it uses a lot more power."),
       pane("ripple", "Ripple", 0.001, 0.04, 0.001, "Size of the refraction ripples: higher is finer and busier, lower is broad and smooth."),
@@ -165,6 +169,10 @@ export function mountTweakPanel<T extends Knobs>(
       pane("edge", "Edge", 0, 2, 0.05, "How strong the glass borders and their bright rims are, on the chat box, the animal bar at the top and this panel. 0 hides them."),
       pane("radius", "Corner radius", 0, 48, 1, "How rounded the chat box's corners are."),
       pane("width", "Width", 320, 960, 10, "How wide the chat box is."),
+    ]] : ["Glass", [
+      // Without the chat box, only the settings that style the animal bar and this panel.
+      pane("tint", "Tint", 0, 3, 0.05, "How milky the glass is. 0 is perfectly clear."),
+      pane("edge", "Edge", 0, 2, 0.05, "How strong the glass borders and their bright rims are, on the animal bar at the top and this panel. 0 hides them."),
     ]],
   ];
 

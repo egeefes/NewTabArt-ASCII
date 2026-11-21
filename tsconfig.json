@@ -9,6 +9,6 @@
     "skipLibCheck": true,
     "noEmit": true
   },
-  "include": ["src", "compare.ts", "demo.ts", "panel.ts", "ui.ts", "suggest.ts"],
+  "include": ["src", "compare.ts", "demo.ts", "panel.ts", "ui.ts", "suggest.ts", "web"],
   "exclude": ["src/react.tsx"]
 }
