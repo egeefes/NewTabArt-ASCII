@@ -4,6 +4,8 @@ ASCII animals drift across your new tab, behind a Dia-style search box with sugg
 
 A new-tab extension for Dia, other Chromium browsers, Firefox and Zen, built on [ascii-animals](https://github.com/DesignerStephen1/ascii-animals) by DesignerStephen1.
 
+Try out the demo at: [egeefes.com/newtab](https://egeefes.com/newtab)
+
 ![demo img](https://i.ibb.co/Q307LWd6/image.png)
 
 ## What's on the page
@@ -25,7 +27,7 @@ Download the right zip from this repository's [Releases](../../releases):
 | Browser | Download |
 |---|---|
 | Dia, Chrome, Edge, Arc, Brave and other Chromium browsers | `chrome-extension-universal.zip` |
-| Firefox and Zen | [addons.mozilla.org/en-US/firefox/addon/ascii-animals-new-tab-page](https://addons.mozilla.org/en-US/firefox/addon/ascii-animals-new-tab-page/) or download directly from [addons.mozilla.org/firefox/downloads/file/5288107/a668bd87586d4cd9b37d-1.29.1.xpi](https://addons.mozilla.org/firefox/downloads/file/5288107/a668bd87586d4cd9b37d-1.29.1.xpi)
+| Firefox and Zen | `firefox-extension-universal.xpi` |
 
 ### Dia, Chrome and other Chromium browsers
 
@@ -39,14 +41,9 @@ To update, unzip the new version over the same folder and click reload ↻ on th
 
 ### Firefox and Zen
 
-1. Download extension here: [addons.mozilla.org/firefox/downloads/file/5288107/a668bd87586d4cd9b37d-1.29.1.xpi](https://addons.mozilla.org/firefox/downloads/file/5288107/a668bd87586d4cd9b37d-1.29.1.xpi)
+1. Download extension from releases.
 2. If you are using Zen: Type `about:config` in your search bar and in the opened page, search for `zen.urlbar.replace-newtab`. Set it to false.
-3. Set the correct homepage by following the steps below:
-  - Close all tabs and open a new tab.
-  - Go to Firefox settings -> Home and startup -> Homepage.
-  - Click new windows, select custom url -> choose a specific site -> current opened pages.
-  - Ensure the extension is the only item in the list.
-  - Lastly, go back and ensure that the extension is selected in the new tabs option too.
+3. Double-click the name to put your own name in the greeting.
    
 You're all set!
   
