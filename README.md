@@ -25,7 +25,7 @@ Download the right zip from this repository's [Releases](../../releases):
 | Browser | Download |
 |---|---|
 | Dia, Chrome, Edge, Arc, Brave and other Chromium browsers | `chrome-extension-universal.zip` |
-| Firefox and Zen | [addons.mozilla.org/en-US/firefox/addon/ascii-animals-new-tab-page](https://addons.mozilla.org/en-US/firefox/addon/ascii-animals-new-tab-page/) or download directly from [addons.mozilla.org/firefox/downloads/file/5283079/a668bd87586d4cd9b37d-1.25.1.xpi](https://addons.mozilla.org/firefox/downloads/file/5283079/a668bd87586d4cd9b37d-1.25.1.xpi) |
+| Firefox and Zen | [addons.mozilla.org/en-US/firefox/addon/ascii-animals-new-tab-page](https://addons.mozilla.org/en-US/firefox/addon/ascii-animals-new-tab-page/) or download directly from [addons.mozilla.org/firefox/downloads/file/5288107/a668bd87586d4cd9b37d-1.29.1.xpi](https://addons.mozilla.org/firefox/downloads/file/5288107/a668bd87586d4cd9b37d-1.29.1.xpi)
 
 ### Dia, Chrome and other Chromium browsers
 
@@ -39,7 +39,7 @@ To update, unzip the new version over the same folder and click reload ↻ on th
 
 ### Firefox and Zen
 
-1. Download extension here: [addons.mozilla.org/firefox/downloads/file/5283079/a668bd87586d4cd9b37d-1.25.1.xpi](https://addons.mozilla.org/firefox/downloads/file/5283079/a668bd87586d4cd9b37d-1.25.1.xpi)
+1. Download extension here: [addons.mozilla.org/firefox/downloads/file/5288107/a668bd87586d4cd9b37d-1.29.1.xpi](https://addons.mozilla.org/firefox/downloads/file/5288107/a668bd87586d4cd9b37d-1.29.1.xpi)
 2. If you are using Zen: Type `about:config` in your search bar and in the opened page, search for `zen.urlbar.replace-newtab`. Set it to false.
 3. Set the correct homepage by following the steps below:
   - Close all tabs and open a new tab.
